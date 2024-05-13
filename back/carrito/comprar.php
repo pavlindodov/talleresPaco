@@ -24,6 +24,7 @@
             if ($producto['cantidad'] > $producto['stock']) {
                 rollback($conexion);
                 header("location:carrito.php?updateCarrito=5");
+                exit();
             }
 
             $cantidadVendida = $producto['cantidad'];
@@ -47,4 +48,5 @@
 
     desconectar($conexion);
     header("location:eliminarCarrito.php?origen=comprar");
+    exit();
 ?>
