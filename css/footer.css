@@ -1,0 +1,101 @@
+footer {
+	/*max-width: 1200px;*/
+	width: 100%;
+	margin: auto;
+	background: linear-gradient(
+		to bottom,
+		rgba(44, 118, 255, 0),
+		rgba(44, 118, 255, 0.7)
+	);
+	z-index: -20;
+	position: fixed;
+	bottom: 0;
+}
+
+footer #footerContainer {
+	max-width: 1200px;
+	margin: auto;
+}
+
+#footerContainer .redes-footer {
+	display: flex;
+	justify-content: center;
+}
+
+#footerContainer .redes-footer .icon-redes-footer {
+	font-size: 20px;
+	margin: 0px;
+	background: #ffffff;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	color: #a2a2a2;
+}
+
+#footerContainer .redes-footer div {
+	margin: 20px;
+}
+
+#footerContainer .redes-footer .fa-facebook-f:hover {
+	background: #41579a;
+	color: #ffffff;
+}
+
+#footerContainer .redes-footer .fa-telegram:hover {
+	background: #229ed9;
+	color: #ffffff;
+}
+
+#footerContainer .redes-footer .fa-instagram:hover {
+	background: -webkit-linear-gradient(
+		to top right,
+		#fcde30,
+		#e9712a,
+		#d2313b,
+		#ae4198,
+		#7540a1,
+		#5443a8
+	);
+	background: -o-linear-gradient(
+		to top right,
+		#fcde30,
+		#e9712a,
+		#d2313b,
+		#ae4198,
+		#7540a1,
+		#5443a8
+	);
+	background: -moz-linear-gradient(
+		to top right,
+		#fcde30,
+		#e9712a,
+		#d2313b,
+		#ae4198,
+		#7540a1,
+		#5443a8
+	);
+	background: linear-gradient(
+		to top right,
+		#fcde30,
+		#e9712a,
+		#d2313b,
+		#ae4198,
+		#7540a1,
+		#5443a8
+	);
+	color: white;
+}
+
+#footerContainer h4 {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	color: #f5f5f5;
+	font-weight: 500;
+}

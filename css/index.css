@@ -1,0 +1,22 @@
+.banner {
+    max-width: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 5em 0;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin: 0;
+}

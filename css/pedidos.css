@@ -1,0 +1,55 @@
+.container {
+    width: 1200px;
+    margin: auto;
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.tableContainer {
+    width: 100%;
+    padding: 10px;
+    position: relative;
+}
+
+.infoContainer {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: rgb(192, 192, 192);
+}
+
+th {
+    background-color:#2c76ff;
+}
+
+.tdTotal {
+    text-align: right;
+    font-weight: bold;
+}
+
+.pedidosVacios {
+    text-align: center;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+footer #footerContainer {
+    display: none !important;
+}

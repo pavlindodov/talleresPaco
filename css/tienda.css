@@ -1,0 +1,76 @@
+.containerPost {
+    width: 100%;
+    margin: auto;
+}
+
+.post {
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.post .img {
+    width: 15%;
+    padding: auto;
+    margin: auto;
+}
+
+.post .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 0px 20px;
+}
+
+.post span {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0px 20px;
+}
+
+.tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.tags li {
+    list-style: none;
+    font-size: 14px;
+    margin: 4px;
+    padding: 6px 10px;
+    cursor: default;
+}
+
+.post a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
