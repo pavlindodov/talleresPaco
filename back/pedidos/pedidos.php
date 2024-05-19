@@ -76,7 +76,7 @@
                                     <th>Total</th>
                                 </tr>";
 
-                                $consulta="SELECT p.modelo, p.marca, l.cantidad, l.precioUd FROM lineafactura l JOIN producto p ON p.id=l.idProducto WHERE l.idFactura='$idFactura'";
+                                $consulta="SELECT p.modelo, p.marca, l.cantidad, l.precioUd FROM lineaFactura l JOIN producto p ON p.id=l.idProducto WHERE l.idFactura='$idFactura'";
                                 $resultado2 = $conexion->query($consulta);
                                 while ($registro = $resultado2->fetch_assoc()) {
                                     $modelo = $registro['modelo'];

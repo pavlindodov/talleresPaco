@@ -23,6 +23,7 @@ button {
     cursor: pointer;
     border-radius: 6px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
 .buttonCesta:hover {
@@ -37,6 +38,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 6px;
+    overflow: hidden;
 }
 
 .buttonAgotado:hover {

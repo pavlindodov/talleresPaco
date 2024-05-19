@@ -1,4 +1,7 @@
 body {
-    background: url('https://i.ibb.co/KKStdX3/background.jpg') center/cover no-repeat;
-    height: 100vh;
+    background: url('https://i.ibb.co/KKStdX3/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

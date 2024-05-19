@@ -12,7 +12,7 @@
         if (isset($_SESSION['dni']) && $_SESSION['idRol'] != 1) {
             echo "
                 <div class='subnav'>
-                    <div class=subnavdrop>".$_SESSION['nombre']." ".$_SESSION['apellidos']."</div>
+                    <div class=subnavdrop>".$_SESSION['nombre']."</div>
                     <div class=subnav-content>
                     <a href='".$ruta."back/usuario/formPerfil.php'>Perfil</a>
                     <a href='".$ruta."back/carrito/carrito.php'>Carrito</a>
@@ -30,7 +30,7 @@
         } elseif (isset($_SESSION['dni']) && $_SESSION['idRol'] == 1) {
             echo "
                 <div class='subnav'>
-                    <div class=subnavdrop>".$_SESSION['nombre']." ".$_SESSION['apellidos']."</div>
+                    <div class=subnavdrop>".$_SESSION['nombre']."</div>
                     <div class=subnav-content>
                         <a href='".$ruta."back/usuario/formPerfil.php'>Perfil</a>
                         <a href='".$ruta."back/productos/listProducto.php'>Gestión de Productos</a>
