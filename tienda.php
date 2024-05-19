@@ -27,61 +27,62 @@
                 nav($ruta);
             ?>
         </header>
-        <?php
-            echo "<div class='comments'>";
-                if (isset($_GET['updateCarrito'])) {
-                    if ($_GET['updateCarrito'] == 1) {
-                        echo "<p style='color:green'>Se añadió al carrito correctamente.</p>";
-                    }
-                }
-            echo "</div>";
-        ?>
-
 
         <div class="containerPost">
-            <?php
-                $conexion = conectar();
-                $consulta = "SELECT * FROM producto";
-
-                $resultado = $conexion->query($consulta);
-
-                desconectar($conexion);
-
-                while ($registro = $resultado->fetch_assoc()) {
-                    $id = $registro['id'];
-                    $modelo = $registro['modelo'];
-                    $marca = $registro['marca'];
-                    $serie = $registro['serie'];
-                    $fechaFabricacion = $registro['fechaFabricacion'];
-                    $precioProducto = $registro['precioProducto'];
-                    $stock = $registro['stock'];
-                    $imgArticulo = $registro['imgArticulo'];
-
-                    echo "
-                    <div class='post'>
-                        <div class='img'>
-                            <img src='back/img/imgProductos/".$imgArticulo."' alt='".$imgArticulo."'>
-                        </div>
-                        <div class='text'>
-                            <h2>".$marca."</h2>
-                            <span>".$modelo."</span>
-                            <h3>".$precioProducto." €</h3>
-                        </div>
-                        <ul class='tags'>
-                            <li>Nº Serie: ".$serie."</li>
-                            <li>Fecha de Fabricación: ".$fechaFabricacion."</li>
-                            <li>Unidades en venta: ".$stock."</li>
-                        </ul>";
-                        if (isset($_SESSION["dni"])) {
-                            if ($stock > 0) {
-                                botonCarrito($id);
-                            } else {
-                                botonAgotado();
+            <div class=content>
+                <?php
+                    echo "<div class='comments'>";
+                        if (isset($_GET['updateCarrito'])) {
+                            if ($_GET['updateCarrito'] == 1) {
+                                echo "<p style='color:green'>Se añadió al carrito correctamente.</p>";
                             }
                         }
-                    echo "</div></br>";
-                }
-            ?>
+                    echo "</div>";
+                ?>
+                <?php
+                    $conexion = conectar();
+                    $consulta = "SELECT * FROM producto";
+
+                    $resultado = $conexion->query($consulta);
+
+                    desconectar($conexion);
+
+                    while ($registro = $resultado->fetch_assoc()) {
+                        $id = $registro['id'];
+                        $modelo = $registro['modelo'];
+                        $marca = $registro['marca'];
+                        $serie = $registro['serie'];
+                        $fechaFabricacion = $registro['fechaFabricacion'];
+                        $precioProducto = $registro['precioProducto'];
+                        $stock = $registro['stock'];
+                        $imgArticulo = $registro['imgArticulo'];
+
+                        echo "
+                        <div class='post'>
+                            <div class='img'>
+                                <img src='back/img/imgProductos/".$imgArticulo."' alt='".$imgArticulo."'>
+                            </div>
+                            <div class='text'>
+                                <h2>".$marca."</h2>
+                                <span>".$modelo."</span>
+                                <h3>".$precioProducto." €</h3>
+                            </div>
+                            <ul class='tags'>
+                                <li>Nº Serie: ".$serie."</li>
+                                <li>Fecha de Fabricación: ".$fechaFabricacion."</li>
+                                <li>Unidades en venta: ".$stock."</li>
+                            </ul>";
+                            if (isset($_SESSION["dni"])) {
+                                if ($stock > 0) {
+                                    botonCarrito($id);
+                                } else {
+                                    botonAgotado();
+                                }
+                            }
+                        echo "</div></br>";
+                    }
+                ?>
+            </div>
         </div>
         <footer>
             <?php

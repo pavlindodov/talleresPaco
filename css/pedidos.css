@@ -1,15 +1,25 @@
-.container {
-    width: 1200px;
-    margin: auto;
-    margin-top: 40px;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.scrollContainer {
+    overflow-y: scroll;
+    height: 76vh;
+}
+
+.scrollContainer::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
 }
 
 .tableContainer {
     width: 100%;
     padding: 10px;
     position: relative;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .infoContainer {
@@ -48,8 +58,4 @@ th {
     font-weight: bold;
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-footer #footerContainer {
-    display: none !important;
 }

@@ -14,6 +14,7 @@
         <link rel="shortcut icon" href="back/img/imgPagina/logotipo.png">
         <link href=../../css/main.css type=text/css rel=stylesheet>
         <link href=../../css/nav.css type=text/css rel=stylesheet>
+        <link href=../../css/content.css type=text/css rel=stylesheet>
         <link href=../../css/pedidos.css type=text/css rel=stylesheet>
         <link href=../../css/background.css type=text/css rel=stylesheet>
         <link href=../../css/footer.css type=text/css rel=stylesheet>
@@ -23,96 +24,102 @@
         <header>
             <?php
                 nav($ruta);
-
-                echo "<div class='comments'>";
-                    if (!isset($_SESSION['dni'])) {
-                        eliminarSession();
-                        header("location:../../index.php?loginError=1");
-                    }
-                echo "</div>";
             ?>
         </header>
-        <?php
-            $dni = $_SESSION['dni'];
-            $precioTotalProductos = 0;
+        <div class="scrollContainer">
+            <div class=content>
+                <?php
+                    echo "<div class='comments'>";
+                        if (!isset($_SESSION['dni'])) {
+                            eliminarSession();
+                            header("location:../../index.php?loginError=1");
+                        }
+                    echo "</div>";
+                ?>
 
-            $conexion = conectar();
+            <?php
+                $dni = $_SESSION['dni'];
+                $precioTotalProductos = 0;
 
-            if ($_SESSION['idRol'] != 1)
-                $consulta = "SELECT * FROM factura WHERE dniCliente='$dni' ORDER BY id DESC";
-            else
-                $consulta = "SELECT * FROM factura ORDER BY id DESC";
-            
-            $resultado = $conexion->query($consulta);
-            $filas = mysqli_affected_rows($conexion);
+                $conexion = conectar();
 
-            if ($filas > 0) {
-                while ($registro = $resultado->fetch_assoc()) {
-                    $idFactura = $registro['id'];
-                    $dniCliente = $registro['dniCliente'];
-                    $fechaFactura = $registro['fechaFactura'];
+                if ($_SESSION['idRol'] != 1)
+                    $consulta = "SELECT * FROM factura WHERE dniCliente='$dni' ORDER BY id DESC";
+                else
+                    $consulta = "SELECT * FROM factura ORDER BY id DESC";
 
-                    echo "
-                    <div class='container'>
+                $resultado = $conexion->query($consulta);
+                $filas = mysqli_affected_rows($conexion);
 
-                        <div class='infoContainer'>
-                            <div>
-                                <p>Nº Factura: ".$idFactura."</p>
+                if ($filas > 0) {
+                    while ($registro = $resultado->fetch_assoc()) {
+                        $idFactura = $registro['id'];
+                        $dniCliente = $registro['dniCliente'];
+                        $fechaFactura = $registro['fechaFactura'];
+
+                        echo "
+                        <div class='container'>
+
+                            <div class='infoContainer'>
+                                <div>
+                                    <p>Nº Factura: ".$idFactura."</p>
+                                </div>
+                                <div>
+                                    <p>DNI/NIF: ".$dniCliente."</p>
+                                </div>
+                                <div>
+                                    <p>Fecha: ".$fechaFactura."</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>DNI/NIF: ".$dniCliente."</p>
-                            </div>
-                            <div>
-                                <p>Fecha: ".$fechaFactura."</p>
-                            </div>
-                        </div>
 
-                        <div class='tableContainer'>
-                            <table>
-                                <tr>
-                                    <th>Productos</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio unitario</th>
-                                    <th>Total</th>
-                                </tr>";
+                            <div class='tableContainer'>
+                                <table>
+                                    <tr>
+                                        <th>Productos</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio unitario</th>
+                                        <th>Total</th>
+                                    </tr>";
 
-                                $consulta="SELECT p.modelo, p.marca, l.cantidad, l.precioUd FROM lineaFactura l JOIN producto p ON p.id=l.idProducto WHERE l.idFactura='$idFactura'";
-                                $resultado2 = $conexion->query($consulta);
-                                while ($registro = $resultado2->fetch_assoc()) {
-                                    $modelo = $registro['modelo'];
-                                    $marca = $registro['marca'];
-                                    $cantidad = $registro['cantidad'];
-                                    $precioProducto = $registro['precioUd'];
+                                    $consulta="SELECT p.modelo, p.marca, l.cantidad, l.precioUd FROM lineaFactura l JOIN producto p ON p.id=l.idProducto WHERE l.idFactura='$idFactura'";
+                                    $resultado2 = $conexion->query($consulta);
+                                    while ($registro = $resultado2->fetch_assoc()) {
+                                        $modelo = $registro['modelo'];
+                                        $marca = $registro['marca'];
+                                        $cantidad = $registro['cantidad'];
+                                        $precioProducto = $registro['precioUd'];
 
-                                    $precioTotalProductos = $precioTotalProductos+($precioProducto*$cantidad);
+                                        $precioTotalProductos = $precioTotalProductos+($precioProducto*$cantidad);
 
+                                        echo"
+                                        <tr>
+                                            <td>".$marca." ".$modelo."</td>
+                                            <td>".$cantidad."</td>
+                                            <td>".$precioProducto."</td>
+                                            <td>".$precioProducto*$cantidad." €</td>
+                                        </tr>";
+                                    }
                                     echo"
                                     <tr>
-                                        <td>".$marca." ".$modelo."</td>
-                                        <td>".$cantidad."</td>
-                                        <td>".$precioProducto."</td>
-                                        <td>".$precioProducto*$cantidad." €</td>
-                                    </tr>";
-                                }
-                                echo"
-                                <tr>
-                                    <td colspan='3' class='tdTotal'>Total:</td>
-                                    <td>".$precioTotalProductos." €</td>
-                                </tr>
-                            </table>
-                        </div>
+                                        <td colspan='3' class='tdTotal'>Total:</td>
+                                        <td>".$precioTotalProductos." €</td>
+                                    </tr>
+                                </table>
+                            </div>
 
+                        </div>";
+                        $precioTotalProductos = 0;
+                    }
+                    desconectar($conexion);
+                } else {
+                    echo "
+                    <div class='pedidosVacios'>
+                        <p>No se ha encontrado ningún registro.</p>
                     </div>";
-                    $precioTotalProductos = 0;
                 }
-                desconectar($conexion);
-            } else {
-                echo "
-                <div class='pedidosVacios'>
-                    <p>No se ha encontrado ningún registro.</p>
-                </div>";
-            }
-        ?>
+            ?>
+            </div>
+        </div>
         <footer>
             <?php
                 footer($ruta);

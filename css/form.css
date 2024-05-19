@@ -11,9 +11,12 @@
 input {
 	width: 100%;
 	padding: 10px;
-	margin-bottom: 15px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.enlaceRegistrar {
+    margin-top: 15px;
 }

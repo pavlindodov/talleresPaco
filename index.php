@@ -53,6 +53,5 @@
     </body>
     <!--Archivos Javascript-->
         <script type="text/javascript" src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="javascript/myFunction.js"></script>
     <!--Archivos Javascript-->
 </html>

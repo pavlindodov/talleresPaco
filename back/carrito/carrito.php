@@ -25,45 +25,51 @@
         <header>
             <?php
                 nav($ruta);
-
-                echo "<div class='comments'>";
-                    if (!isset($_SESSION['dni'])) {
-                        eliminarSession();
-                        header("location:../../index.php?loginError=1");
-                    }
-
-                    if (isset($_GET['updateCarrito'])) {
-                        if ($_GET['updateCarrito'] == 1) {
-                            echo "<p style='color:green'>El producto se añadió al carrito correctamente.</p>";
-                        }
-
-                        if ($_GET['updateCarrito'] == 2) {
-                            echo "<p style='color:green'>Se eliminó una unidad del carrito.</p>";
-                        }
-
-                        if ($_GET['updateCarrito'] == 3) {
-                            echo "<p style='color:green'>El producto se eliminó del carrito correctamente.</p>";
-                        }
-
-                        if ($_GET['updateCarrito'] == 4) {
-                            echo "<p style='color:green'>El carrito se vació correctamente.</p>";
-                        }
-
-                        if ($_GET['updateCarrito'] == 5) {
-                            echo "<p style='color:red'>No hay unidades suficientes de alguno de los articulos.</p>";
-                        }
-
-                        if ($_GET['updateCarrito'] == 6) {
-                            echo "<p style='color:green'>Su compra se realizó correctamente.</p>";
-                        }
-                    }
-                echo "</div>";
             ?>
         </header>
-        <div class="containerPost">
-            <?php
-                mostrarContenidoCarrito();
-            ?>
+        <div class="allContainer">
+            <div class=content>
+                <?php
+                    echo "<div class='comments'>";
+                        if (!isset($_SESSION['dni'])) {
+                            eliminarSession();
+                            header("location:../../index.php?loginError=1");
+                        }
+
+                        if (isset($_GET['updateCarrito'])) {
+                            if ($_GET['updateCarrito'] == 1) {
+                                echo "<p style='color:green'>El producto se añadió al carrito correctamente.</p>";
+                            }
+
+                            if ($_GET['updateCarrito'] == 2) {
+                                echo "<p style='color:green'>Se eliminó una unidad del carrito.</p>";
+                            }
+
+                            if ($_GET['updateCarrito'] == 3) {
+                                echo "<p style='color:green'>El producto se eliminó del carrito correctamente.</p>";
+                            }
+
+                            if ($_GET['updateCarrito'] == 4) {
+                                echo "<p style='color:green'>El carrito se vació correctamente.</p>";
+                            }
+
+                            if ($_GET['updateCarrito'] == 5) {
+                                echo "<p style='color:red'>No hay unidades suficientes de alguno de los articulos.</p>";
+                            }
+
+                            if ($_GET['updateCarrito'] == 6) {
+                                echo "<p style='color:green'>Su compra se realizó correctamente.</p>";
+                            }
+                        }
+                    echo "</div>";
+                ?>
+
+                <div class="containerPost">
+                    <?php
+                        mostrarContenidoCarrito();
+                    ?>
+                </div>
+            </div>
         </div>
         <footer>
             <?php

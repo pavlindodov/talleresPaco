@@ -20,7 +20,6 @@
         <link href=../../css/content.css type=text/css rel=stylesheet>
         <link href=../../css/buttons.css type=text/css rel=stylesheet>
         <link href=../../css/formProductos.css type=text/css rel=stylesheet>
-        <link href=../../css/footer.css type=text/css rel=stylesheet>
 
         <title>Gestión de Productos</title>
     </head>
@@ -96,11 +95,6 @@
                     ?>
                 </div>
             </div>
-        <footer>
-            <?php
-                footer($ruta);
-            ?>
-        </footer>
     </body>
     <!--Archivos Javascript-->
         <script type="text/javascript" src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
