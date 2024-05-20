@@ -9,7 +9,7 @@
             <label for='passwd'>contraseña:</label></br>
             <input type='password' id='passwd' name='passwd' minlength='8' placeholder='******************'></br>
 
-            <label for='dni'>DNI/NIF: <span style='color:red'>No se puede modificar.</span></label></br>
+            <label for='dni'>DNI/NIE: <span style='color:red'>No se puede modificar.</span></label></br>
             <input type='text' id='dni' name='dni' placeholder=".$_SESSION['dni']." readonly></br>
 
             <label for='nombre'>Nombre:</label></br>

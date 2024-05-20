@@ -114,7 +114,7 @@
             <label for='passwd'>*Contraseña:</label><br>
             <input type='password' id='passwd' name='passwd' minlength='8' required><br>
 
-            <label for='dni'>*DNI/NIF:</label><br>
+            <label for='dni'>*DNI/NIE:</label><br>
             <input type='text' id='dni' name='dni' minlength='9' maxlength='9' required><br>
 
             <label for='nombre'>*Nombre:</label><br>
