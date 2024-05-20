@@ -23,10 +23,9 @@
 }
 
 .infoContainer {
-    width: 40%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 table {

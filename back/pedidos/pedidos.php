@@ -44,9 +44,9 @@
                 $conexion = conectar();
 
                 if ($_SESSION['idRol'] != 1)
-                    $consulta = "SELECT * FROM factura WHERE dniCliente='$dni' ORDER BY id DESC";
+                    $consulta = "SELECT * FROM factura f JOIN usuario u ON f.dniCliente=u.dni WHERE dniCliente='$dni' ORDER BY id DESC";
                 else
-                    $consulta = "SELECT * FROM factura ORDER BY id DESC";
+                    $consulta = "SELECT * FROM factura f JOIN usuario u ON f.dniCliente=u.dni ORDER BY id DESC";
 
                 $resultado = $conexion->query($consulta);
                 $filas = mysqli_affected_rows($conexion);
@@ -54,6 +54,7 @@
                 if ($filas > 0) {
                     while ($registro = $resultado->fetch_assoc()) {
                         $idFactura = $registro['id'];
+                        $usuario = $registro['usuario'];
                         $dniCliente = $registro['dniCliente'];
                         $fechaFactura = $registro['fechaFactura'];
 
@@ -63,6 +64,9 @@
                             <div class='infoContainer'>
                                 <div>
                                     <p>Nº Factura: ".$idFactura."</p>
+                                </div>
+                                <div>
+                                    <p>Usuario: ".$usuario."</p>
                                 </div>
                                 <div>
                                     <p>DNI/NIF: ".$dniCliente."</p>
