@@ -12,6 +12,12 @@
         if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
             beginTransaction($conexion);
 
+            foreach ($_SESSION['carrito'] as $i => $producto) {
+                if ($producto['cantidad'] > $producto['stock']) {
+                    throw new Exception("Stock insuficiente para el producto " . $producto['id']);
+                }
+            }
+
             $consulta = "INSERT INTO factura (totalFactura, dniCliente, fechaFactura) VALUES ('$precioTotal', '$dni', now())";
             $conexion->query($consulta);
 
@@ -21,10 +27,6 @@
             $idFactura = $registro['id'];
 
             foreach ($_SESSION['carrito'] as $i => $producto) {
-                if ($producto['cantidad'] > $producto['stock']) {
-                    throw new Exception();
-                }
-
                 $cantidadVendida = $producto['cantidad'];
                 $stock = $producto['stock'];
                 $idProducto = $producto['id'];
