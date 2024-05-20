@@ -23,7 +23,7 @@ create table usuario (
     correo varchar(30),
     telefono char(9),
     imgPerfil varchar(255),
-    constraint fk_usuario_rol foreign key (idRol) references tienda.rol(id)
+    constraint fk_usuario_rol foreign key (idRol) references rol(id)
 );
 
 -- -----------------------------------------------------
@@ -49,7 +49,7 @@ create table factura (
     totalFactura decimal(9,2) not null,
     dniCliente char(9) not null,
     fechaFactura datetime not null,
-    constraint fk_factura_usuario foreign key (dniCliente) references tienda.usuario(dni)
+    constraint fk_factura_usuario foreign key (dniCliente) references usuario(dni)
 );
 
 -- -----------------------------------------------------
@@ -60,8 +60,8 @@ create table lineaFactura (
     idProducto int not null,
     cantidad int not null,
     precioUd decimal(9,2) not null,
-    constraint fk_lineaFactura_producto foreign key (idProducto) references tienda.producto(id),
-    constraint fk_lineaFactura_factura foreign key (idFactura) references tienda.factura(id)
+    constraint fk_lineaFactura_producto foreign key (idProducto) references producto(id),
+    constraint fk_lineaFactura_factura foreign key (idFactura) references factura(id)
 );
 
 insert into rol values (1,'administrador'),(2,'usuario');
