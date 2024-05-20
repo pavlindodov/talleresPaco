@@ -65,5 +65,5 @@ create table lineaFactura (
 );
 
 insert into rol values (1,'administrador'),(2,'usuario');
-insert into usuario values ('111111111','Pavlin','Dodov','root','1d7c07570befaf67781dea6735c675c94c4b63cdcde56fcce77bbd781c94ef73',1,'root@gmail.com','673804133','admin.jpg');
-insert into usuario values ('222222222','Pavlin','Dodov','pavlin','1d7c07570befaf67781dea6735c675c94c4b63cdcde56fcce77bbd781c94ef73',2,'hola@gmail.com','673804133','default.jpg');
+insert into usuario values ('65004204V','Admin','Root','root','1d7c07570befaf67781dea6735c675c94c4b63cdcde56fcce77bbd781c94ef73',1,'root@gmail.com','673804133','rootadmin.jpg');
+insert into usuario values ('X7213436B','Pavlin','Dodov','pavlin','1d7c07570befaf67781dea6735c675c94c4b63cdcde56fcce77bbd781c94ef73',2,'hola@gmail.com','673804133','default.jpg');
