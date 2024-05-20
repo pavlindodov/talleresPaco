@@ -34,14 +34,31 @@
     /* -------------------------------------------- */
 
     function esDniValido($dni) {
-        // validación mediante una expresión regular para introducir DNI o NIE
+        // validación mediante una expresión regular para introducir DNI español o NIE
         /*
-        12345678 (exactamente ocho dígitos)
-        12345678A (ocho dígitos seguidos de un carácter alfabético)
-        A1234567 (un carácter alfabético seguido de exactamente siete dígitos)
-        A1234567B (un carácter alfabético seguido de siete dígitos y un carácter alfabético al final)
+        Ejemplos de DNI Válidos
+            12345678A
+            87654321B
+            23456789C
+            34567890D
+            45678901E
+        Ejemplos de NIE Válidos
+            X1234567L
+            Y7654321M
+            Z9876543P
+            X2345678Q
+            Y8765432R
+            Z3456789S
+
+            ^: Comienzo de la cadena.
+            [0-9]{8}: Ocho dígitos.
+            [A-Za-z]: Una letra.
+            [XYZ]: Una letra que puede ser X, Y, o Z.
+            [0-9]{7}: Siete dígitos.
+            [A-Za-z]: Una letra.
+            $: Fin de la cadena.
         */
-        $patron = '/^[0-9]{8}[A-Za-z]?$|^[A-Za-z][0-9]{7}[A-Za-z]?$/';
+        $patron = '/^[0-9]{8}[A-Za-z]$|^[XYZ][0-9]{7}[A-Za-z]$/';
         return preg_match($patron, $dni) === 1;
     }
 
