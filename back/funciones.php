@@ -34,10 +34,12 @@
     /* -------------------------------------------- */
 
     function esDniValido($dni) {
-        // validación mediante una expresión regular para introducir DNI o NIF
+        // validación mediante una expresión regular para introducir DNI o NIE
         /*
-        Ocho dígitos seguidos opcionalmente de una letra.
-        Una letra seguida de siete dígitos y opcionalmente otra letra.
+        12345678 (exactamente ocho dígitos)
+        12345678A (ocho dígitos seguidos de un carácter alfabético)
+        A1234567 (un carácter alfabético seguido de exactamente siete dígitos)
+        A1234567B (un carácter alfabético seguido de siete dígitos y un carácter alfabético al final)
         */
         $patron = '/^[0-9]{8}[A-Za-z]?$|^[A-Za-z][0-9]{7}[A-Za-z]?$/';
         return preg_match($patron, $dni) === 1;
